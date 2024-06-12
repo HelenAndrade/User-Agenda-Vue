@@ -1,15 +1,15 @@
 <template>
-  <a href="">
-    <div class="card">
+ <a :href="'/user/' + user.id">    
+  <div class="card">
       <div class="card-content">
         <h2>{{ user.name }}</h2>
-        <p>Email: {{ user.email }}</p>
-      </div>
+      <p>Email: {{ user.email }}</p>
     </div>
-  </a>
+  </div>
+</a>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     user: {
