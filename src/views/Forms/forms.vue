@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
-    <h1>About Us</h1>
-    <p>This is the about page of our website.</p>
+    <h1>Form New Contact</h1>
+    <p>This is the form page of our website where you can create new contacts.</p>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'AboutView'
+  name: 'FormsView'
 })
 </script>
 

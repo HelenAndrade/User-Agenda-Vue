@@ -10,7 +10,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UserCard from '@/components/UserCard.vue'
-import usersData from '../../public/users.json'
+import { HomeService } from './home.service';
+import usersData from '../../../public/users.json'
 
 export default defineComponent({
   name: 'HomeView',
