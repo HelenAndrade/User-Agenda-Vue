@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { FormsService } from './forms.service'
 
 export default defineComponent({
   name: 'FormsView'

@@ -2,27 +2,43 @@
   <div class="app-container">
     <h1>Welcome to Home Page</h1>
     <p>This is the home page of our website.</p>
+    <h1 v-for="contact in contacts" :key="contact" >{{ contact?.email}}</h1>
 
-    <UserCard v-for="user in users" :key="user.id" :user="user" />
+    <!-- <UserCard v-for="user in users" :key="user.id" :user="user" /> -->
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UserCard from '@/components/UserCard.vue'
 import { HomeService } from './home.service';
-import usersData from '../../../public/users.json'
+import { Contacts } from '@/model/contact.model'
+import type HomeData from '@/interface/HomeData.vue';
+
 
 export default defineComponent({
   name: 'HomeView',
-  components: {
-    UserCard
-  },
-  data() {
-    return {
-      users: usersData
+  
+  data(): HomeData{
+    return {      
+      // users: usersData,
+      contacts: [] ,
+
     }
+  },
+  computed:{
+    service(){
+      return new HomeService()
+    }
+  },
+  methods:{
+    getContacts(){
+      this.service.getAllContact().then((response:Array<Contacts>)=>this.contacts=response)
+    }
+  },
+  mounted(){
+   this.getContacts()
   }
+  
 })
 </script>
 

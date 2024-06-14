@@ -1,5 +1,6 @@
 import { ContactRest } from '@/service/rest/contact.rest'
-import { AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
+
 export class HomeService {
   constructor(private _contact = new ContactRest()) {}
   getAllContact() {
