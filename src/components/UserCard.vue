@@ -1,12 +1,11 @@
 <template>
- <a :href="'/user/' + user.id">    
+ <RouterLink to="/user/">    
   <div class="card">
       <div class="card-content">
-        <h2>{{ user.name }}</h2>
-      <p>Email: {{ user.email }}</p>
+       <h2>{{ user?.name }}</h2>
     </div>
   </div>
-</a>
+</RouterLink>
 </template>
 
 <script lang="ts">

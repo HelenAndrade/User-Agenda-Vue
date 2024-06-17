@@ -2,9 +2,11 @@
   <div class="app-container">
     <h1>Welcome to Home Page</h1>
     <p>This is the home page of our website.</p>
-    <h1 v-for="contact in contacts" :key="contact" >{{ contact?.email}}</h1>
-
-    <!-- <UserCard v-for="user in users" :key="user.id" :user="user" /> -->
+    
+  <div v-for="contact in contacts" :key="contact.id" >
+    
+    <UserCard  :user="contact" />
+  </div>
   </div>
 </template>
 
@@ -12,17 +14,18 @@
 import { defineComponent } from 'vue'
 import { HomeService } from './home.service';
 import { Contacts } from '@/model/contact.model'
-import type HomeData from '@/interface/HomeData.vue';
+import UserCard from '@/components/UserCard.vue';
 
 
 export default defineComponent({
   name: 'HomeView',
-  
-  data(): HomeData{
+    components:{
+      UserCard
+    },
+  data(){
     return {      
       // users: usersData,
-      contacts: [] ,
-
+      contacts: [] as Array<Contacts>
     }
   },
   computed:{
