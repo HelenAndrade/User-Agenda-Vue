@@ -1,4 +1,5 @@
-[
+{
+ "contacts":[
   {
     "id": 1,
     "name": "John Doe",
@@ -124,4 +125,5 @@
     "name": "Ryan Adams",
     "email": "ryan.adams@example.com"
   }
-]
+ ]
+}
