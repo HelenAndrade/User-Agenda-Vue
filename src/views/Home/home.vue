@@ -5,7 +5,7 @@
     
   <div v-for="contact in contacts" :key="contact.id" >
     
-    <UserCard  :user="contact" />
+    <contact-card  :user="contact" />
   </div>
   </div>
 </template>
@@ -14,14 +14,8 @@
 import { defineComponent } from 'vue'
 import { HomeService } from './home.service';
 import { Contacts } from '@/model/contact.model'
-import UserCard from '@/components/UserCard.vue';
-
 
 export default defineComponent({
-  name: 'HomeView',
-    components:{
-      UserCard
-    },
   data(){
     return {      
       // users: usersData,
