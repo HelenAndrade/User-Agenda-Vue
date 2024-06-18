@@ -1,5 +1,5 @@
 <template>
- <RouterLink to="/user/">    
+ <RouterLink :to="'/contactprofile/' + user?.id">    
   <div class="card">
       <div class="card-content">
        <h2>{{ user?.name }}</h2>
