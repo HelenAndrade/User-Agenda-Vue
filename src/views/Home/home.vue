@@ -4,7 +4,6 @@
     <p>This is the home page of our website.</p>
     
   <div v-for="contact in contactList" :key="contact.id" >
-    
     <contact-card  :user="contact" />
   </div>
 
@@ -15,6 +14,7 @@
 import { defineComponent } from 'vue'
 import { HomeService } from './home.service';
 import { Contacts } from '@/model/contact.model'
+import UserCard from '@/components/UserCard.vue';
 
 export default defineComponent({
   data(){
@@ -51,5 +51,6 @@ export default defineComponent({
   color: white;
   height: fit-content;
   width: 100vh;
+  padding: 15px;
 }
 </style>
