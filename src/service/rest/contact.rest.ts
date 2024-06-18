@@ -1,5 +1,5 @@
 import type { Contacts } from '@/model/contact.model'
-import api from '../config'
+import api from '../rxjs'
 
 export class ContactRest {
   getContactById(id: String) {

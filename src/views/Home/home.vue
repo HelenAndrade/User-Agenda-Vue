@@ -3,10 +3,11 @@
     <h1>Welcome to Home Page</h1>
     <p>This is the home page of our website.</p>
     
-  <div v-for="contact in contacts" :key="contact.id" >
+  <div v-for="contact in contactList" :key="contact.id" >
     
     <contact-card  :user="contact" />
   </div>
+
   </div>
 </template>
 
@@ -19,7 +20,8 @@ export default defineComponent({
   data(){
     return {      
       // users: usersData,
-      contacts: [] as Array<Contacts>
+      contactList: [] as Array<Contacts>
+
     }
   },
   computed:{
@@ -29,7 +31,8 @@ export default defineComponent({
   },
   methods:{
     getContacts(){
-      this.service.getAllContact().then((response:Array<Contacts>)=>this.contacts=response)
+      this.service.contact.pipe().subscribe({next: (response) => this.contactList = response})
+      this.service.getAllContact()
     }
   },
   mounted(){
