@@ -1,5 +1,5 @@
 import { ContactRest } from '@/service/rest/contact.rest'
-import { AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
 import { Contacts } from '@/model/contact.model'
 export class FormsService {
   constructor(private _contact = new ContactRest()) {}
