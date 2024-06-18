@@ -9,6 +9,8 @@
 </template>
 
 <script lang="ts">
+import { Contacts } from '@/model/contact.model';
+
 export default {
   props: {
     user: {

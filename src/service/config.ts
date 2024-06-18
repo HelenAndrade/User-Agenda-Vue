@@ -1,16 +1,33 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios";
+import type { AxiosRequestConfig, AxiosInstance } from "axios";
+function apiConfig(baseUrl: string): AxiosRequestConfig {
+  return {
+    baseURL: baseUrl,
+  };
+}
 
-const api = axios.create({baseURL:'https://6669f9352e964a6dfed7431b.mockapi.io/api/v1'})
-
-api.interceptors.request.use(
-    (request)=>{
-        return request
+function initAxios(config: AxiosRequestConfig, token?: any): AxiosInstance {
+  const defineInstance = axios.create(config);
+  defineInstance.interceptors.request.use(
+    (request: any) => {
+      return request;
     },
-    (error)=>{return Promise.reject(error)}
-)
+    (error) => Promise.reject(error)
+  );
 
-api.interceptors.response.use(
-    (response) => response, (error) => alert(error)
-)
+  defineInstance.interceptors.response.use(
+    (response) => response,
+    (error: AxiosError) => {
+      alert(error);
+      return Promise.reject(error);
+    }
+  );
 
-export default api 
+  return defineInstance;
+}
+
+function api(baseURL= "https://6669f9352e964a6dfed7431b.mockapi.io/api/v1", token?: any) {
+  return initAxios(apiConfig(baseURL), token);
+}
+
+export default api;
