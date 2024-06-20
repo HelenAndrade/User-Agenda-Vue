@@ -1,13 +1,11 @@
 <template>
   <RouterLink :to="'/contactprofile/' + user?.id">    
-    <Card>
-    <template #title>{{ user?.name }}</template>
-    <template #content>
-        <p class="m-0">
-        {{ user?.email }}
-        </p>
-    </template>
-</Card>
+    <Card class="card">
+      <template #title>{{ user?.name }}{{ user?.email }}</template>
+      <template #content>
+        <contact-buttons></contact-buttons>
+      </template>
+    </Card>
  </RouterLink>
  </template>
  
@@ -24,13 +22,12 @@
  <style scoped>
  .card {
    width: 80vh;
-   background-color: whitesmoke;
-   padding: 20px;
-   margin: 10px 5px 10px 5px;
+   display: flex;
+   flex-direction: column;
+   
  }
- 
- .card-content {
-   color: #333;
+ .card:hover {
+  background-color: rgb(39, 47, 49);
  }
  </style>
 

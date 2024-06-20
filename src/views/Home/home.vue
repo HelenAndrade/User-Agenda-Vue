@@ -14,7 +14,6 @@
 import { defineComponent } from 'vue'
 import { HomeService } from './home.service';
 import { Contacts } from '@/model/contact.model'
-import UserCard from '@/components/UserCard.vue';
 
 export default defineComponent({
   data(){
